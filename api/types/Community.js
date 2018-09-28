@@ -135,7 +135,7 @@ const Community = /* GraphQL */ `
     trending
   }
 
-  type Community {
+  type Community @cacheControl(maxAge: 1800) {
     id: ID!
     createdAt: Date
     name: String!

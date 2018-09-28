@@ -79,7 +79,7 @@ const User = /* GraphQL */ `
     username: String
   }
 
-  type User {
+  type User @cacheControl(maxAge: 1800) {
     id: ID!
     name: String
     firstName: String
@@ -100,7 +100,7 @@ const User = /* GraphQL */ `
     # non-schema fields
     threadCount: Int @cost(complexity: 1)
     isAdmin: Boolean
-    isPro: Boolean! @cost(complexity: 1)
+    isPro: Boolean! @cost(complexity: 1) @cacheControl(maxAge: 1209600)
     communityConnection: UserCommunitiesConnection!
     channelConnection: UserChannelsConnection!
     directMessageThreadsConnection(
